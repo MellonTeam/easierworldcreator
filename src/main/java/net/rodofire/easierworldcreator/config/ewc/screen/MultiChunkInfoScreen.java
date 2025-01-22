@@ -27,7 +27,7 @@ public class MultiChunkInfoScreen extends AbstractInfoScreen {
 
     public MultiChunkInfoScreen() {
         super(Text.of("multi-chunk feature info"),
-                new Identifier(Ewc.MOD_ID, "textures/gui/config_background.png"),
+                Identifier.of(Ewc.MOD_ID, "textures/gui/config_background.png"),
                 1920,
                 1080,
                 0xAFAFAFFF
@@ -38,7 +38,7 @@ public class MultiChunkInfoScreen extends AbstractInfoScreen {
     @Override
     protected void init() {
         super.init();
-        ImageButtonWidget buttonWidget = new ImageButtonWidget(this.width / 2 + 32, this.height - 22, 20, 20, new Identifier(Ewc.MOD_ID, "textures/gui/mushrooomsmod.png"), button -> {
+        ImageButtonWidget buttonWidget = new ImageButtonWidget(this.width / 2 + 32, this.height - 22, 20, 20, Identifier.of(Ewc.MOD_ID, "textures/gui/mushrooomsmod.png"), button -> {
             MinecraftClient.getInstance().setScreen(new ConfirmLinkScreen(
                     open -> {
                         if (open) {
@@ -90,7 +90,7 @@ public class MultiChunkInfoScreen extends AbstractInfoScreen {
 
         context.drawCenteredTextWithShadow(this.textRenderer, Text.translatable("config.ewc.multi_chunk.with"), this.width / 2 + (width1 + 10) / 2, yOffset + calculateTextHeight(Text.translatable("config.ewc.multi_chunk.concept").getString(), 4 * this.width / 5) + 26, 0xFFFFFF);
         context.drawTexture(
-                new Identifier(Ewc.MOD_ID, "textures/gui/info/with_multi_chunk.png"),
+                Identifier.of(Ewc.MOD_ID, "textures/gui/info/with_multi_chunk.png"),
                 this.width / 2 + 10,
                 yOffset + calculateTextHeight(Text.translatable("config.ewc.multi_chunk.concept").getString(), 4 * this.width / 5) + 36,
                 0,
@@ -102,7 +102,7 @@ public class MultiChunkInfoScreen extends AbstractInfoScreen {
         );
         context.drawCenteredTextWithShadow(this.textRenderer, Text.translatable("config.ewc.multi_chunk.without"), this.width / 2 - (width1 - 10) / 2, yOffset + calculateTextHeight(Text.translatable("config.ewc.multi_chunk.concept").getString(), 4 * this.width / 5) + 26, 0xFFFFFF);
         context.drawTexture(
-                new Identifier(Ewc.MOD_ID, "textures/gui/info/without_multi_chunk.png"),
+                Identifier.of(Ewc.MOD_ID, "textures/gui/info/without_multi_chunk.png"),
                 this.width / 2 - width1 - 10,
                 yOffset + calculateTextHeight(Text.translatable("config.ewc.multi_chunk.concept").getString(), 4 * this.width / 5) + 36,
                 0,
@@ -129,8 +129,8 @@ public class MultiChunkInfoScreen extends AbstractInfoScreen {
     }
 
     @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double amount) {
-        return scrollBar.mouseScrolled(mouseX, mouseY, amount);
+    public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
+        return scrollBar.mouseScrolled(mouseX, mouseY, horizontalAmount, verticalAmount);
     }
 
     @Override
